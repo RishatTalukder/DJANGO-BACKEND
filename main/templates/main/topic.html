@@ -1,0 +1,23 @@
+{% extends 'main/base.html' %}
+
+
+{% block content %}
+    <h1>{{ topic }}</h1>
+
+    <p>Entries:</p>
+    <a href="{% url 'main:new_entry' topic.id %}">add new</a>
+    <ul>
+    {% for entry in entries %}
+        <li>
+            <p>{{ entry.date_added|date:'M d, Y H:i'}}</p>
+            <p>
+                {{entry.text}} <a href="{% url 'main:edit_entry' entry.id %}">Edit</a> <hr>
+            </p>
+        </li>
+        {%empty%}
+        <P>No Data</P>
+    {% endfor %}
+    </ul>
+        
+{% endblock content %}
+    

@@ -1,0 +1,17 @@
+{% extends 'main/base.html' %}
+
+
+{% block content %}
+    
+    {% if from.errors %}
+        <p>something please try again</p>
+    {% endif %}
+
+    <form action="{% url 'users:register' %}" method="post" >
+        {% csrf_token %}
+        {{form.as_p}}
+        <button name="submit">Sign up</button>
+        <input type="hidden" name="next" value="{% url 'main:home' %}" >
+    </form>
+        
+{% endblock content %}

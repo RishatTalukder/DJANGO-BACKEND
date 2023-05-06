@@ -1,0 +1,14 @@
+{% extends 'main/base.html' %}
+
+
+{% block content %}
+    <h3>{{topic}}</h3>
+    <p>Add entry</p>
+    <form action="." method="post">
+        {% csrf_token %}
+        {{form.as_p}}
+        <button name="sumit">Add entry</button>
+    </form>
+    
+{% endblock content %}
+    

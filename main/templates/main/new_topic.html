@@ -1,0 +1,14 @@
+{% extends 'main/base.html' %}
+
+
+{% block content %}
+    New Topic
+    <form action="#" method="post">
+        {% csrf_token %}
+        {{form.as_p}}
+        <button name="submit">
+            Add Topic
+        </button>
+    </form>
+{% endblock content %}
+    
