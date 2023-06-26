@@ -1,18 +1,14 @@
 {% extends 'main/base.html' %}
 
-
 {% block content %}
-    
     {% if from.errors %}
-        <p>something please try again</p>
+        <p class="text-red-500 mb-4">Something went wrong. Please try again.</p>
     {% endif %}
 
-    <form action="{% url 'users:login' %}" method="post" >
+    <form action="{% url 'users:login' %}" method="post" class="max-w-sm mx-auto">
         {% csrf_token %}
-        {{form.as_p}}
-        <button name="submit">Log in</button>
-        <input type="hidden" name="next" value="{% url 'main:home' %}" >
+        {{ form.as_p }}
+        <button type="submit" class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded mt-4">Log in</button>
+        <input type="hidden" name="next" value="{% url 'main:home' %}">
     </form>
-        
 {% endblock content %}
-    

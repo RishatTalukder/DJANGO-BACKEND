@@ -1,14 +1,11 @@
 {% extends 'main/base.html' %}
 
-
 {% block content %}
-    <h3>{{topic}}</h3>
-    <p>Add entry</p>
-    <form action="." method="post">
+    <h3 class="text-2xl font-semibold text-gray-800 mb-4">{{ topic }}</h3>
+    <p class="text-lg text-gray-600 mb-2">Add Entry</p>
+    <form action="." method="post" class="space-y-4">
         {% csrf_token %}
-        {{form.as_p}}
-        <button name="sumit">Add entry</button>
+        {{ form.as_p }}
+        <button type="submit" class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded">Add Entry</button>
     </form>
-    
 {% endblock content %}
-    
